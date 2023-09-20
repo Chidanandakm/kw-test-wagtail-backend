@@ -1,13 +1,15 @@
-from django.shortcuts import render
-
-# Create your views here.
-
-from .serializer import BlogPageSerializer
+from .serializers import BlogPageListSerializer, BlogPageDetailSerializer
 from rest_framework import generics
-# from rest_framework.permissions import IsAdminUser
 
 from .models import BlogPage
 
-class BlogListCreateApiView(generics.ListCreateAPIView):
-    serializer_class = BlogPageSerializer
+
+class BlogListAPIView(generics.ListAPIView):
+    serializer_class = BlogPageListSerializer
     queryset = BlogPage.objects.live()
+
+
+class BlogDetailAPIView(generics.RetrieveAPIView):
+    serializer_class = BlogPageDetailSerializer
+    queryset = BlogPage.objects.live()
+    lookup_field = "slug"

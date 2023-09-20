@@ -1,9 +1,10 @@
-from django.urls import path, re_path, include
-from .views import BlogListCreateApiView
+from django.urls import path
+from .views import BlogListAPIView, BlogDetailAPIView
 
 app_name = "blogs"
 
 
 urlpatterns = [
-    path('',BlogListCreateApiView.as_view(), name='list_blog' )
+    path("", BlogListAPIView.as_view(), name="list_blog"),
+    path("<slug:slug>/", BlogDetailAPIView.as_view(), name="detail_blog"),
 ]
