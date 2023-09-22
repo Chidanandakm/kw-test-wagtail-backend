@@ -24,8 +24,8 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    # 'wagtail.api.v2',
-    'rest_framework',
+    "wagtail.api.v2",
+    "rest_framework",
     "blog",
     "home",
     "search",
@@ -157,6 +157,9 @@ STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
+# STATIC_URL = "daca-59-95-183-179.ngrok-free.app/static/"
+# MEDIA_URL = "daca-59-95-183-179.ngrok-free.app/media/"
+
 
 # Wagtail settings
 
@@ -173,3 +176,4 @@ WAGTAILSEARCH_BACKENDS = {
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 WAGTAILADMIN_BASE_URL = "http://example.com"
+WAGTAILAPI_LIMIT_MAX = 20

@@ -4,6 +4,7 @@ from wagtail.models import Page
 from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel
 from wagtail.search import index
+from wagtail.api.v2.views import APIField
 
 
 class BlogIndexPage(Page):
@@ -29,4 +30,12 @@ class BlogPage(Page):
         FieldPanel("image"),
         FieldPanel("date"),
         FieldPanel("author"),
+    ]
+
+    api_fields = [
+        APIField("title"),
+        APIField("body"),
+        APIField("image"),
+        APIField("date"),
+        APIField("author"),
     ]
